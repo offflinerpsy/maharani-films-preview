@@ -1,0 +1,428 @@
+/* Maharani Films design system
+   Static-first CSS: the same file can be enqueued by a WordPress theme. */
+
+@layer maharani-tokens, maharani-base, maharani-components, maharani-utilities;
+
+@layer maharani-tokens {
+  :root {
+    /* Brand primitives */
+    --mf-ink-950: #171411;
+    --mf-ink-900: #241813;
+    --mf-cream-50: #fcf9f3;
+    --mf-cream-100: #f4efe6;
+    --mf-gold-500: #b08d57;
+    --mf-gold-600: #8f6b35;
+    --mf-red-500: #8c1d2c;
+    --mf-red-600: #6e1521;
+    --mf-red-700: #551019;
+    --mf-line: color-mix(in srgb, var(--mf-ink-900) 14%, transparent);
+
+    /* Semantic tokens */
+    --color-canvas: var(--mf-cream-50);
+    --color-surface: var(--mf-cream-100);
+    --color-ink: var(--mf-ink-900);
+    --color-ink-inverse: var(--mf-cream-50);
+    --color-primary: var(--mf-red-500);
+    --color-primary-hover: var(--mf-red-600);
+    --color-accent: var(--mf-gold-500);
+    --color-focus: #c83d4d;
+
+    /* Layout */
+    --container-max: 90rem;
+    --content-max: 74rem;
+    --gutter: clamp(1.25rem, 4vw, 5rem);
+    --section-space: clamp(5.5rem, 9vw, 9rem);
+    --radius-sm: 0.125rem;
+    --radius-md: 0.75rem;
+
+    /* Motion */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration-fast: 180ms;
+    --duration-base: 420ms;
+    --duration-slow: 800ms;
+  }
+}
+
+@layer maharani-base {
+  html {
+    background: var(--color-canvas);
+    overflow-x: clip;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
+  img,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  .grid > * {
+    min-width: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 4px;
+  }
+
+  .max-w-screen-2xl {
+    max-width: var(--container-max) !important;
+  }
+
+  .px-page-margin-desktop {
+    padding-left: var(--gutter) !important;
+    padding-right: var(--gutter) !important;
+  }
+
+  header {
+    background: color-mix(in srgb, var(--mf-cream-50) 96%, transparent) !important;
+    color: var(--color-ink) !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--mf-gold-500) 20%, transparent);
+    backdrop-filter: blur(14px);
+  }
+
+  header nav > a {
+    background: none !important;
+    color: var(--color-ink) !important;
+    -webkit-text-fill-color: currentColor !important;
+  }
+}
+
+@layer maharani-components {
+  .c-container {
+    width: min(100%, var(--container-max));
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .c-button {
+    position: relative;
+    isolation: isolate;
+    display: inline-flex;
+    min-height: 3.5rem;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid transparent;
+    padding: 1rem 2.25rem;
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: transform var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard),
+      box-shadow var(--duration-fast) var(--ease-standard);
+  }
+
+  .c-button::after {
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    content: "";
+    background: linear-gradient(115deg, transparent 20%, rgb(255 255 255 / 24%) 48%, transparent 72%);
+    transform: translateX(-130%);
+    transition: transform 700ms var(--ease-out);
+  }
+
+  .c-button:hover,
+  .c-button:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .c-button:hover::after,
+  .c-button:focus-visible::after {
+    transform: translateX(130%);
+  }
+
+  .c-button--primary {
+    background: var(--color-primary) !important;
+    border-color: color-mix(in srgb, var(--mf-gold-500) 40%, var(--color-primary));
+    color: #fff !important;
+    box-shadow: 0 14px 34px rgb(66 8 17 / 24%);
+  }
+
+  .c-button--primary:hover,
+  .c-button--primary:focus-visible {
+    background: var(--color-primary-hover) !important;
+    box-shadow: 0 18px 42px rgb(66 8 17 / 34%);
+  }
+
+  .c-button--secondary {
+    border-color: var(--color-accent);
+    background: transparent;
+    color: var(--color-ink);
+  }
+
+  /* Hero */
+  .c-hero {
+    min-height: min(100svh, 62rem);
+    background: var(--mf-ink-950);
+  }
+
+  .c-hero__media,
+  .c-hero__video,
+  .c-hero__overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .c-hero__video {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .c-hero__overlay {
+    background:
+      linear-gradient(180deg, rgb(23 20 17 / 42%) 0%, rgb(23 20 17 / 10%) 42%, rgb(23 20 17 / 58%) 100%),
+      radial-gradient(circle at 50% 48%, transparent 0 18%, rgb(23 20 17 / 36%) 78%);
+  }
+
+  .c-hero__content {
+    width: min(calc(100% - (2 * var(--gutter))), 48rem);
+    border: 1px solid rgb(255 255 255 / 22%);
+    background: rgb(23 20 17 / 28%);
+    box-shadow: 0 24px 90px rgb(0 0 0 / 18%);
+    backdrop-filter: blur(5px);
+  }
+
+  .c-hero .c-button {
+    animation: button-arrive 900ms 650ms var(--ease-out) both;
+  }
+
+  /* Trust strip */
+  .c-trust {
+    position: relative;
+    background: var(--mf-ink-950);
+  }
+
+  .c-trust__ornament {
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    width: min(94rem, 112vw);
+    max-width: none;
+    pointer-events: none;
+    opacity: 0.16;
+    transform: translateX(-50%);
+    mix-blend-mode: screen;
+  }
+
+  .c-trust__grid {
+    position: relative;
+    z-index: 1;
+  }
+
+  .c-metric {
+    min-height: 9rem;
+    justify-content: center;
+  }
+
+  /* Wedding Weekend switcher */
+  .c-weekend__stage {
+    box-shadow: 0 26px 70px rgb(36 24 19 / 13%);
+  }
+
+  .weekend-img {
+    opacity: 0;
+    transform: scale(1);
+    z-index: 0;
+    transition: opacity 650ms var(--ease-out), transform 1100ms var(--ease-out);
+  }
+
+  .weekend-img.is-active {
+    opacity: 1 !important;
+    transform: scale(1.025) !important;
+    z-index: 1 !important;
+  }
+
+  .weekend-row {
+    border-radius: var(--radius-sm);
+    transition: padding-left var(--duration-base) var(--ease-out),
+      background-color var(--duration-base) var(--ease-standard);
+  }
+
+  .weekend-row:hover,
+  .weekend-row:focus-visible,
+  .weekend-row.is-active {
+    padding-left: 1rem;
+    background: color-mix(in srgb, var(--mf-red-500) 5%, transparent);
+  }
+
+  .weekend-row h4 {
+    color: var(--color-ink) !important;
+    transition: color var(--duration-base) var(--ease-standard);
+  }
+
+  .weekend-row:hover h4,
+  .weekend-row:focus-visible h4,
+  .weekend-row.is-active h4 {
+    color: var(--color-primary) !important;
+  }
+
+  .weekend-row .highlight-line {
+    width: 0 !important;
+  }
+
+  .weekend-row:hover .highlight-line,
+  .weekend-row:focus-visible .highlight-line,
+  .weekend-row.is-active .highlight-line {
+    width: 3rem !important;
+  }
+
+  /* Traditions switcher */
+  .tradition-row {
+    min-height: 11.5rem;
+    transition: background-color var(--duration-base) var(--ease-standard);
+  }
+
+  .tradition-row__media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 700ms var(--ease-out);
+  }
+
+  .tradition-row__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 42%;
+    transform: scale(1.035);
+    transition: transform 1300ms var(--ease-out);
+  }
+
+  .tradition-row__media::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: linear-gradient(90deg, rgb(23 20 17 / 90%), rgb(23 20 17 / 64%) 55%, rgb(23 20 17 / 82%));
+  }
+
+  .tradition-row:hover .tradition-row__media,
+  .tradition-row:focus-visible .tradition-row__media,
+  .tradition-row.is-active .tradition-row__media {
+    opacity: 1;
+  }
+
+  .tradition-row:hover .tradition-row__media img,
+  .tradition-row:focus-visible .tradition-row__media img,
+  .tradition-row.is-active .tradition-row__media img {
+    transform: scale(1);
+  }
+
+  .tradition-row:hover h3,
+  .tradition-row:focus-visible h3,
+  .tradition-row.is-active h3,
+  .tradition-row:hover p,
+  .tradition-row:focus-visible p,
+  .tradition-row.is-active p {
+    color: var(--mf-cream-50) !important;
+  }
+
+  .tradition-row:hover .text-gold,
+  .tradition-row:focus-visible .text-gold,
+  .tradition-row.is-active .text-gold {
+    transform: translateX(0.5rem);
+  }
+}
+
+@layer maharani-utilities {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition: opacity 760ms var(--ease-out), transform 760ms var(--ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @keyframes button-arrive {
+    from { opacity: 0; transform: translateY(1.25rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 64rem) {
+    header nav {
+      display: none;
+    }
+
+    .c-hero__content {
+      padding: 2rem 1.5rem !important;
+    }
+
+    .tradition-row {
+      min-height: 10rem;
+    }
+  }
+
+  @media (max-width: 48rem) {
+    :root {
+      --gutter: clamp(1rem, 5vw, 1.5rem);
+    }
+
+    .c-hero {
+      min-height: 48rem;
+    }
+
+    .text-display-xl {
+      font-size: clamp(3rem, 13vw, 4.5rem) !important;
+      line-height: 0.98 !important;
+    }
+
+    .text-headline-lg {
+      font-size: clamp(2.5rem, 11vw, 3.25rem) !important;
+      line-height: 1.02 !important;
+    }
+
+    .grid-cols-12 {
+      column-gap: 1rem !important;
+      row-gap: 2.5rem !important;
+    }
+
+    .grid-cols-12 .pl-12 {
+      padding-left: 1.25rem !important;
+    }
+
+    .grid-cols-12 .pr-12 {
+      padding-right: 1.25rem !important;
+    }
+
+    .c-trust__ornament {
+      width: 230%;
+      opacity: 0.1;
+    }
+
+    .c-metric {
+      min-height: 7rem;
+    }
+
+    .tradition-row {
+      padding-block: 2.5rem !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto !important; }
+    *, *::before, *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 1ms !important;
+    }
+    [data-reveal] { opacity: 1; transform: none; }
+  }
+}
