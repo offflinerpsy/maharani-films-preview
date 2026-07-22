@@ -8,6 +8,7 @@
     /* Brand primitives */
     --mf-ink-950: #171411;
     --mf-ink-900: #241813;
+    --mf-hero-trust-surface: #1b1814;
     --mf-cream-50: #fcf9f3;
     --mf-cream-100: #f4efe6;
     --mf-gold-500: #b08d57;
@@ -163,7 +164,7 @@
   /* Hero */
   .c-hero {
     min-height: min(100svh, 62rem);
-    background: var(--mf-ink-950);
+    background: var(--mf-hero-trust-surface);
   }
 
   .c-hero__media,
@@ -176,7 +177,7 @@
   }
 
   .c-hero__media {
-    background: var(--mf-ink-950);
+    background: var(--mf-hero-trust-surface);
   }
 
   .c-hero__video {
@@ -203,9 +204,9 @@
   }
 
   /* Trust strip */
-  .c-trust {
+  .c-trust.bg-ink {
     position: relative;
-    background: var(--mf-ink-950);
+    background: var(--mf-hero-trust-surface);
   }
 
   .c-trust__ornament {
