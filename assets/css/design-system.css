@@ -175,6 +175,10 @@
     height: 100%;
   }
 
+  .c-hero__media {
+    background: var(--mf-ink-950);
+  }
+
   .c-hero__video {
     object-fit: cover;
     object-position: center;
