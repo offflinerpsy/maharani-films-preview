@@ -206,14 +206,13 @@
 
   .c-trust__ornament {
     position: absolute;
-    top: 1.5rem;
+    top: 66%;
     left: 50%;
-    width: min(94rem, 112vw);
-    max-width: none;
+    width: 112%;
+    max-width: none !important;
     pointer-events: none;
-    opacity: 0.16;
-    transform: translateX(-50%);
-    mix-blend-mode: screen;
+    opacity: 0.14;
+    transform: translate(-50%, -50%);
   }
 
   .c-trust__grid {
@@ -402,7 +401,8 @@
     }
 
     .c-trust__ornament {
-      width: 230%;
+      top: 70%;
+      width: 160%;
       opacity: 0.1;
     }
 
