@@ -310,6 +310,156 @@
     text-wrap: pretty;
   }
 
+  /* Editorial testimonial: restrained, intimate, and continuous with Awards & Press. */
+  .c-testimonial {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-surface);
+    color: var(--color-on-surface);
+  }
+
+  .c-testimonial__inner {
+    display: grid;
+    grid-template-columns: minmax(12rem, 15rem) 1px minmax(0, 1fr);
+    gap: clamp(2.75rem, 5vw, 5rem);
+    align-items: center;
+    width: min(100%, 70rem);
+    margin-inline: auto;
+  }
+
+  .c-testimonial__portrait {
+    position: relative;
+    width: clamp(12rem, 16vw, 15rem);
+    aspect-ratio: 1;
+    padding: 0.5rem;
+    overflow: hidden;
+    border: 1px solid rgb(176 141 87 / 64%);
+    border-radius: 50%;
+    background: var(--mf-cream-50);
+    box-shadow: 0 1.5rem 4rem rgb(75 50 38 / 12%);
+  }
+
+  .c-testimonial__portrait::after {
+    content: "";
+    position: absolute;
+    inset: 0.85rem;
+    pointer-events: none;
+    border: 1px solid rgb(252 249 243 / 68%);
+    border-radius: inherit;
+  }
+
+  .c-testimonial__portrait img {
+    width: 100%;
+    max-width: none !important;
+    height: 100% !important;
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: 50% 55%;
+    filter: saturate(0.82) contrast(0.95) brightness(1.04);
+  }
+
+  .c-testimonial__rule {
+    width: 1px;
+    height: 72%;
+    background: linear-gradient(180deg, transparent, rgb(176 141 87 / 58%) 20%, rgb(176 141 87 / 58%) 80%, transparent);
+  }
+
+  .c-testimonial__content {
+    max-width: 49rem;
+  }
+
+  .c-testimonial__quote {
+    color: #4a342c;
+    font-family: "Italianno", "Cormorant Garamond", cursive;
+    font-size: clamp(3.35rem, 4.6vw, 4.8rem);
+    font-weight: 400;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .c-testimonial__credit {
+    margin-top: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--mf-red-500);
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.68rem;
+    line-height: 1.5;
+    letter-spacing: 0.19em;
+    text-transform: uppercase;
+  }
+
+  .c-awards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2.5rem, 4vw, 4.5rem);
+    width: min(100%, 72rem);
+    margin: 0 auto 3.5rem;
+    align-items: start;
+  }
+
+  .c-award-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .c-award-card__media {
+    position: relative;
+    width: clamp(9.5rem, 13vw, 11.75rem);
+    aspect-ratio: 1;
+    margin-bottom: 1.75rem;
+    overflow: hidden;
+    border: 1px solid rgb(176 141 87 / 28%);
+    background: #fff;
+    box-shadow: 0 1.25rem 3.5rem rgb(61 43 32 / 8%);
+  }
+
+  .c-award-card__media::after {
+    content: "";
+    position: absolute;
+    inset: 0.42rem;
+    pointer-events: none;
+    border: 1px solid rgb(176 141 87 / 18%);
+  }
+
+  .c-award-card__media img {
+    width: 100%;
+    max-width: none !important;
+    height: 100% !important;
+    object-fit: contain;
+  }
+
+  .c-award-card__title {
+    min-height: 2.75em;
+    max-width: 23ch;
+    margin-bottom: 1rem;
+    color: #4a342c;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.25rem, 1.65vw, 1.55rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .c-award-card__title::after {
+    content: "";
+    display: block;
+    width: 2.25rem;
+    height: 1px;
+    margin: 1rem auto 0;
+    background: rgb(176 141 87 / 58%);
+  }
+
+  .c-award-card__copy {
+    max-width: 35ch;
+    color: rgb(85 66 65 / 82%);
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.72rem;
+    line-height: 1.75;
+    text-wrap: pretty;
+  }
+
   .c-metric {
     min-height: 9rem;
     justify-content: center;
@@ -736,6 +886,23 @@
       gap: clamp(3rem, 7vw, 5rem) clamp(2rem, 7vw, 4rem);
     }
 
+    .c-testimonial__inner {
+      grid-template-columns: 12rem 1px minmax(0, 1fr);
+      gap: 2.5rem;
+    }
+
+    .c-testimonial__portrait {
+      width: 12rem;
+    }
+
+    .c-testimonial__quote {
+      font-size: clamp(3.15rem, 5.5vw, 3.85rem);
+    }
+
+    .c-awards-grid {
+      gap: 2rem;
+    }
+
   }
 
   .c-pillars {
@@ -860,6 +1027,65 @@
       max-width: 30ch;
       font-size: 0.85rem;
       line-height: 1.65;
+    }
+
+    .c-testimonial {
+      padding-block: 7rem !important;
+    }
+
+    .c-testimonial__inner {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2rem;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .c-testimonial__portrait {
+      width: 10.75rem;
+    }
+
+    .c-testimonial__rule {
+      width: 5rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgb(176 141 87 / 58%) 20%, rgb(176 141 87 / 58%) 80%, transparent);
+    }
+
+    .c-testimonial__content {
+      max-width: 32rem;
+    }
+
+    .c-testimonial__quote {
+      font-size: clamp(2.75rem, 12vw, 3.25rem);
+      line-height: 1;
+    }
+
+    .c-testimonial__credit {
+      max-width: 24rem;
+      margin-inline: auto;
+      font-size: 0.62rem;
+    }
+
+    .c-awards-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 4.5rem;
+      width: min(100%, 25rem);
+      margin-bottom: 3.5rem;
+    }
+
+    .c-award-card__media {
+      width: 10.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .c-award-card__title {
+      min-height: 0;
+      max-width: 22ch;
+      font-size: 1.4rem !important;
+    }
+
+    .c-award-card__copy {
+      max-width: 34ch;
+      font-size: 0.75rem;
     }
 
     .c-dual-art {
