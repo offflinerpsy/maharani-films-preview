@@ -36,12 +36,22 @@
     --radius-sm: 0.125rem;
     --radius-md: 0.75rem;
 
+    /* Typography roles */
+    --type-section-title-size: 3.5rem;
+    --type-section-title-gradient: linear-gradient(180deg, rgb(212 175 55) 0%, rgb(124 43 43) 100%);
+
     /* Motion */
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
     --duration-fast: 180ms;
     --duration-base: 420ms;
     --duration-slow: 800ms;
+  }
+
+  @media (max-width: 48rem) {
+    :root {
+      --type-section-title-size: clamp(2.625rem, 11vw, 3.25rem);
+    }
   }
 }
 
@@ -94,6 +104,20 @@
 }
 
 @layer maharani-components {
+  .c-section-title {
+    display: inline-block;
+    background: var(--type-section-title-gradient);
+    background-clip: text;
+    font-family: "Cormorant Garamond", serif;
+    font-size: var(--type-section-title-size) !important;
+    font-style: normal;
+    font-weight: 300 !important;
+    letter-spacing: -0.025em;
+    line-height: 1.05 !important;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .c-container {
     width: min(100%, var(--container-max));
     margin-inline: auto;
@@ -227,6 +251,63 @@
   .c-trust__grid {
     position: relative;
     z-index: 1;
+  }
+
+  /* Inclusions deliberately reuse the trust strip's surface and exact ornament. */
+  .c-inclusions-echo {
+    color: var(--mf-cream-50);
+  }
+
+  .c-inclusions-echo > .c-trust__ornament {
+    top: 84%;
+  }
+
+  .c-inclusions-echo__inner {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 86rem);
+    margin-inline: auto;
+  }
+
+  .c-inclusions-echo__header {
+    margin-bottom: clamp(4.5rem, 8vw, 7rem);
+  }
+
+  .c-inclusions-echo__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2.2vw, 2.5rem);
+    align-items: start;
+  }
+
+  .c-inclusions-echo__item {
+    display: flex;
+    min-height: 12rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-inline: 0.25rem;
+    text-align: center;
+  }
+
+  .c-inclusions-echo__title {
+    width: 100%;
+    margin-bottom: 1.35rem;
+    color: var(--mf-gold-500);
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.8rem, 2.1vw, 2.15rem) !important;
+    font-weight: 300 !important;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  .c-inclusions-echo__copy {
+    max-width: 28ch;
+    color: rgb(244 239 230 / 72%);
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-wrap: pretty;
   }
 
   .c-metric {
@@ -649,6 +730,12 @@
     .c-dual-art__copy--cinema {
       width: 76%;
     }
+
+    .c-inclusions-echo__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(3rem, 7vw, 5rem) clamp(2rem, 7vw, 4rem);
+    }
+
   }
 
   .c-pillars {
@@ -744,6 +831,35 @@
       top: 70%;
       width: 160%;
       opacity: 0.1;
+    }
+
+    .c-inclusions-echo__header {
+      margin-bottom: 3.75rem;
+    }
+
+    .c-inclusions-echo > .c-trust__ornament {
+      top: 102%;
+    }
+
+    .c-inclusions-echo__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 3.25rem;
+    }
+
+    .c-inclusions-echo__item {
+      min-height: 0;
+      padding-inline: 0;
+    }
+
+    .c-inclusions-echo__title {
+      margin-bottom: 1rem;
+      font-size: clamp(1.75rem, 7.4vw, 1.95rem) !important;
+    }
+
+    .c-inclusions-echo__copy {
+      max-width: 30ch;
+      font-size: 0.85rem;
+      line-height: 1.65;
     }
 
     .c-dual-art {
