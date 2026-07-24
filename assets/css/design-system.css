@@ -55,6 +55,320 @@
   }
 }
 
+/* Premium dark footer — compact, symmetrical Indian-wedding editorial layout. */
+.c-footer-light {
+  --footer-bg: var(--mf-hero-trust-surface);
+  --footer-ink: #f2e7d8;
+  --footer-muted: #cdbca9;
+  --footer-gold: #c8a46c;
+  --footer-line: rgb(200 164 108 / 28%);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  color: var(--footer-ink);
+  background: var(--footer-bg);
+}
+
+.c-footer-light__lotus {
+  position: absolute;
+  left: 50%;
+  z-index: 4;
+  display: grid;
+  width: 4.75rem;
+  height: 3.85rem;
+  place-items: center;
+  pointer-events: none;
+  color: var(--footer-gold);
+  background: var(--footer-bg);
+  transform: translateX(-50%);
+}
+
+.c-footer-light__lotus svg {
+  width: 2.15rem;
+  height: 2.15rem;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.c-footer-light__lotus--top {
+  top: 0.1rem;
+  padding-top: 0.5rem;
+  border-radius: 0 0 999px 999px;
+}
+
+.c-footer-light__paisley {
+  position: absolute;
+  right: -2.5rem;
+  bottom: -7rem;
+  z-index: 1;
+  width: clamp(20rem, 31vw, 31rem);
+  max-width: none;
+  pointer-events: none;
+  opacity: 0.34;
+}
+
+.c-footer-light__inner {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 90rem);
+  margin-inline: auto;
+  padding: clamp(5.25rem, 5.5vw, 6rem) clamp(3rem, 5vw, 5rem) clamp(3.25rem, 3.5vw, 4rem);
+}
+
+.c-footer-light__brand {
+  display: grid;
+  grid-template-columns: minmax(38rem, 1.8fr) minmax(17rem, 0.75fr) max-content;
+  gap: clamp(1.75rem, 2.75vw, 2.75rem);
+  align-items: center;
+  padding-bottom: clamp(2rem, 3vw, 2.75rem);
+}
+
+.c-footer-light__brand-title {
+  max-width: 52rem;
+  margin: 0;
+  color: var(--footer-ink);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.9rem, 2.4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  text-wrap: balance;
+  text-transform: uppercase;
+}
+
+.c-footer-light__brand-copy {
+  max-width: 24rem;
+  margin: 0;
+  color: var(--footer-muted);
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(0.7rem, 0.78vw, 0.8rem);
+  line-height: 1.75;
+  letter-spacing: 0.075em;
+}
+
+.c-footer-light__availability-group {
+  min-width: 14rem;
+}
+
+.c-footer-light__availability {
+  margin: 0 0 0.85rem;
+  color: var(--footer-gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.94rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.c-footer-light__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr 0.75fr 1.15fr 1fr;
+  gap: clamp(2rem, 4vw, 4.75rem);
+  align-items: start;
+  padding-block: clamp(2rem, 2.5vw, 2.5rem);
+}
+
+.c-footer-light__column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.c-footer-light__column h3 {
+  margin: 0 0 0.85rem;
+  color: var(--footer-gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.c-footer-light__column > a,
+.c-footer-light__brands p,
+.c-footer-light__contacts a,
+.c-footer-light__contacts p {
+  margin: 0;
+  color: var(--footer-muted);
+  font-family: "Libre Baskerville", serif;
+  font-size: clamp(0.76rem, 0.86vw, 0.9rem);
+  line-height: 1.55;
+  text-decoration: none;
+}
+
+.c-footer-light__column > a {
+  margin-bottom: 0.6rem;
+}
+
+.c-footer-light__brands p + p {
+  margin-top: 1rem;
+}
+
+.c-footer-light__contacts {
+  display: grid;
+  grid-template-columns: max-content max-content max-content minmax(18rem, 1fr);
+  align-items: center;
+  margin: 0;
+  padding: 1.2rem 0 0;
+  list-style: none;
+}
+
+.c-footer-light__contacts li {
+  display: flex;
+  min-width: 0;
+  gap: 0.7rem;
+  align-items: center;
+  padding-inline: clamp(1rem, 2vw, 1.75rem);
+}
+
+.c-footer-light__contacts li:first-child {
+  padding-left: 0;
+}
+
+.c-footer-light__locations {
+  padding-right: clamp(8rem, 18vw, 17rem);
+}
+
+.c-footer-light__locations p {
+  white-space: nowrap;
+}
+
+.c-footer-light__contact-glyph {
+  display: grid;
+  flex: 0 0 1.9rem;
+  width: 1.9rem;
+  height: 1.9rem;
+  place-items: center;
+  color: var(--footer-gold);
+}
+
+.c-footer-light__contact-glyph svg {
+  width: 1.45rem;
+  height: 1.45rem;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+}
+
+.c-footer-light a {
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.c-footer-light a:hover,
+.c-footer-light a:focus-visible {
+  color: var(--footer-gold);
+}
+
+@media (max-width: 76.25rem) {
+  .c-footer-light__brand {
+    grid-template-columns: minmax(0, 1fr) max-content;
+  }
+
+  .c-footer-light__brand-title {
+    grid-column: 1 / -1;
+  }
+
+  .c-footer-light__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.75rem 3rem;
+  }
+
+  .c-footer-light__contacts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .c-footer-light__contacts li {
+    min-height: 3.25rem;
+  }
+
+  .c-footer-light__locations {
+    padding-right: clamp(5rem, 18vw, 11rem);
+  }
+
+  .c-footer-light__locations p {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 60rem) {
+  .c-footer-light__inner {
+    padding-inline: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .c-footer-light__brand {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .c-footer-light__brand-title {
+    grid-column: auto;
+    max-width: 44rem;
+  }
+
+  .c-footer-light__availability-group {
+    width: min(100%, 17rem);
+  }
+
+  .c-footer-light__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 40rem) {
+  .c-footer-light__paisley {
+    right: -6rem;
+    bottom: -2rem;
+    width: 19rem;
+    opacity: 0.3;
+  }
+
+  .c-footer-light__inner {
+    padding: 5.25rem 1.55rem 3.25rem;
+  }
+
+  .c-footer-light__brand-title {
+    font-size: clamp(1.75rem, 8vw, 2.15rem);
+    letter-spacing: 0.045em;
+  }
+
+  .c-footer-light__brand-copy {
+    max-width: 29rem;
+  }
+
+  .c-footer-light__grid {
+    gap: 2.5rem 1.5rem;
+  }
+
+  .c-footer-light__contacts {
+    grid-template-columns: 1fr;
+  }
+
+  .c-footer-light__contacts li,
+  .c-footer-light__contacts li:first-child,
+  .c-footer-light__contacts li:nth-child(3),
+  .c-footer-light__contacts li:nth-child(4) {
+    min-height: 3rem;
+    padding-inline: 0;
+    border-left: 0;
+  }
+
+  .c-footer-light__locations {
+    padding-right: 4rem;
+  }
+}
+
 @layer maharani-base {
   html {
     background: var(--color-canvas);
