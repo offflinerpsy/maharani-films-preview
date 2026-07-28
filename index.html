@@ -197,7 +197,7 @@
 <a class="inline-block font-label-caps text-[10px] text-on-surface uppercase border-b fine-line-gold pb-1 hover:text-primary transition-all tracking-[0.25em]" href="#">VIEW FULL PORTFOLIO</a>
 </section>
 <!-- 06 - THE WEDDING WEEKEND Timeline -->
-<section class="py-[120px] px-page-margin-desktop relative overflow-hidden bg-[#F4EFE6] text-[#241813]" data-component="wedding-weekend" data-weekend-switcher>
+<section id="wedding-weekend" class="py-[120px] px-page-margin-desktop relative overflow-hidden bg-[#F4EFE6] text-[#241813]" data-component="wedding-weekend" data-weekend-switcher>
 <!-- Subtle jali lattice watermark background -->
 <div class="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #241813 1px, transparent 0); background-size: 32px 32px;"></div>
 <div class="max-w-screen-2xl mx-auto relative z-10">
@@ -217,13 +217,15 @@
 <!-- Photography Left Side (~7 columns) -->
 <div class="lg:col-span-7 relative flex justify-center lg:justify-start">
 <!-- Main Image (Jharokha mask) -->
-<div class="c-weekend__stage relative w-full aspect-[4/5] overflow-hidden max-w-[580px]" style="border-radius: 200px 200px 0px 0px;">
+<div class="c-weekend__frame relative w-full aspect-[4/5] max-w-[580px]">
+<div class="c-weekend__stage absolute inset-0 overflow-hidden" style="border-radius: 200px 200px 0px 0px;">
 <img alt="Mehndi ceremony with the bride and her family" class="absolute inset-0 w-full h-full object-cover weekend-img is-active" data-step="01" src="assets/images/weekend-mehndi.webp" decoding="async">
 <img alt="Haldi celebration with family applying turmeric" class="absolute inset-0 w-full h-full object-cover weekend-img" data-step="02" src="assets/images/weekend-haldi.webp" loading="lazy" decoding="async">
 <img alt="Family performance during a Sangeet celebration" class="absolute inset-0 w-full h-full object-cover weekend-img" data-step="03" src="assets/images/weekend-sangeet.webp" loading="lazy" decoding="async">
 <img alt="Groom and family dancing in a Baraat procession" class="absolute inset-0 w-full h-full object-cover weekend-img" data-step="04" src="assets/images/weekend-baraat.webp" loading="lazy" decoding="async">
 <img alt="Wedding ceremony beneath a floral mandap" class="absolute inset-0 w-full h-full object-cover weekend-img" data-step="05" src="assets/images/weekend-ceremony.webp" loading="lazy" decoding="async">
 <img alt="Bride embracing her parent during the Vidaai" class="absolute inset-0 w-full h-full object-cover weekend-img" data-step="06" src="assets/images/weekend-vidaai-reception.webp" loading="lazy" decoding="async">
+</div>
 </div>
 <!-- Secondary Image -->
 </div>
@@ -302,17 +304,19 @@
 </div>
 </section>
 <!-- EVERY TRADITION, UNDERSTOOD -->
-<section class="py-section-gap bg-cream border-b fine-line-gold relative" data-component="traditions" data-traditions-switcher>
+<section id="traditions" class="py-section-gap bg-cream border-b fine-line-gold relative" data-component="traditions" data-traditions-switcher>
 <div class="text-center mb-24 flex flex-col items-center px-page-margin-desktop">
 <span class="font-label-caps text-[10px] text-gold tracking-[0.4em] uppercase block mb-6">TRADITIONS</span>
 <h2 class="c-section-title text-on-surface mb-6">EVERY TRADITION, UNDERSTOOD</h2>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto italic">A cultural archive of South Asian wedding traditions, where heritage meets cinematic artistry.</p>
 </div>
 
-<div class="flex flex-col w-full">
+<div class="c-traditions__blinds flex flex-col w-full" role="listbox" aria-label="South Asian wedding traditions">
+  <div class="c-traditions__shared-image" aria-hidden="true">
+    <img src="assets/images/tradition-hindu.webp" alt="" loading="lazy" decoding="async">
+  </div>
   <!-- Row 1 -->
   <div class="tradition-row is-active group relative border-t border-gold/30 cursor-pointer py-16 px-page-margin-desktop overflow-hidden" data-target="hindu" tabindex="0" role="option" aria-selected="true">
-    <div class="tradition-row__media is-active" data-step="hindu" aria-hidden="false"><img src="assets/images/tradition-hindu.webp" alt="Hindu wedding ceremony beneath a mandap" loading="lazy" decoding="async"></div>
     <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 transition-colors duration-700">
       <h3 class="font-headline-lg text-[42px] md:text-[56px] text-on-surface group-hover:text-cream transition-colors duration-700">Hindu Weddings</h3>
       <div class="flex items-center gap-8 md:gap-16">
@@ -324,7 +328,6 @@
 
   <!-- Row 2 -->
   <div class="tradition-row group relative border-t border-gold/30 cursor-pointer py-16 px-page-margin-desktop overflow-hidden" data-target="sikh" tabindex="0" role="option" aria-selected="false">
-    <div class="tradition-row__media" data-step="sikh" aria-hidden="true"><img src="assets/images/tradition-sikh.webp" alt="Anand Karaj ceremony inside a gurdwara" loading="lazy" decoding="async"></div>
     <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 transition-colors duration-700">
       <h3 class="font-headline-lg text-[42px] md:text-[56px] text-on-surface group-hover:text-cream transition-colors duration-700">Sikh Weddings</h3>
       <div class="flex items-center gap-8 md:gap-16">
@@ -336,7 +339,6 @@
 
   <!-- Row 3 -->
   <div class="tradition-row group relative border-t border-gold/30 cursor-pointer py-16 px-page-margin-desktop overflow-hidden" data-target="muslim" tabindex="0" role="option" aria-selected="false">
-    <div class="tradition-row__media" data-step="muslim" aria-hidden="true"><img src="assets/images/tradition-muslim.webp" alt="South Asian Nikah with family" loading="lazy" decoding="async"></div>
     <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 transition-colors duration-700">
       <h3 class="font-headline-lg text-[42px] md:text-[56px] text-on-surface group-hover:text-cream transition-colors duration-700">Muslim Weddings</h3>
       <div class="flex items-center gap-8 md:gap-16">
@@ -348,7 +350,6 @@
 
   <!-- Row 4 -->
   <div class="tradition-row group relative border-t border-gold/30 cursor-pointer py-16 px-page-margin-desktop overflow-hidden" data-target="south-indian" tabindex="0" role="option" aria-selected="false">
-    <div class="tradition-row__media" data-step="south-indian" aria-hidden="true"><img src="assets/images/tradition-south-indian.webp" alt="South Indian wedding ceremony with family" loading="lazy" decoding="async"></div>
     <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 transition-colors duration-700">
       <h3 class="font-headline-lg text-[42px] md:text-[56px] text-on-surface group-hover:text-cream transition-colors duration-700">South Indian Weddings</h3>
       <div class="flex items-center gap-8 md:gap-16">
@@ -360,7 +361,6 @@
 
   <!-- Row 5 -->
   <div class="tradition-row group relative border-t border-gold/30 cursor-pointer py-16 px-page-margin-desktop overflow-hidden" data-target="punjabi" tabindex="0" role="option" aria-selected="false">
-    <div class="tradition-row__media" data-step="punjabi" aria-hidden="true"><img src="assets/images/tradition-punjabi.webp" alt="Punjabi wedding celebration with family" loading="lazy" decoding="async"></div>
     <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 transition-colors duration-700">
       <h3 class="font-headline-lg text-[42px] md:text-[56px] text-on-surface group-hover:text-cream transition-colors duration-700">Punjabi Weddings</h3>
       <div class="flex items-center gap-8 md:gap-16">
@@ -372,7 +372,6 @@
 
   <!-- Row 6 -->
   <div class="tradition-row group relative border-t border-gold/30 cursor-pointer py-16 px-page-margin-desktop overflow-hidden" data-target="gujarati" tabindex="0" role="option" aria-selected="false">
-    <div class="tradition-row__media" data-step="gujarati" aria-hidden="true"><img src="assets/images/tradition-gujarati.webp" alt="Gujarati Garba celebration with family" loading="lazy" decoding="async"></div>
     <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 transition-colors duration-700">
       <h3 class="font-headline-lg text-[42px] md:text-[56px] text-on-surface group-hover:text-cream transition-colors duration-700">Gujarati Weddings</h3>
       <div class="flex items-center gap-8 md:gap-16">
@@ -384,7 +383,6 @@
 
   <!-- Row 7 -->
   <div class="tradition-row group relative border-t border-b border-gold/30 cursor-pointer py-16 px-page-margin-desktop overflow-hidden" data-target="fusion" tabindex="0" role="option" aria-selected="false">
-    <div class="tradition-row__media" data-step="fusion" aria-hidden="true"><img src="assets/images/tradition-fusion.webp" alt="Intercultural South Asian wedding with both families" loading="lazy" decoding="async"></div>
     <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 transition-colors duration-700">
       <h3 class="font-headline-lg text-[42px] md:text-[56px] text-on-surface group-hover:text-cream transition-colors duration-700">Fusion Weddings</h3>
       <div class="flex items-center gap-8 md:gap-16">
@@ -525,8 +523,8 @@
 </div>
 </section>
 <!-- 13 - CLOSING CTA -->
-<section class="py-section-gap px-page-margin-desktop max-w-screen-2xl mx-auto text-center border-b fine-line-gold">
-<div class="max-w-2xl mx-auto flex flex-col items-center gap-8">
+<section class="c-closing-cta py-section-gap px-page-margin-desktop max-w-screen-2xl mx-auto text-center border-b fine-line-gold">
+<div class="c-closing-cta__card max-w-2xl mx-auto flex flex-col items-center gap-8">
 <h2 class="c-section-title text-on-surface">Every wedding begins with a conversation.</h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant">Tell us your date, your city, and a little about your celebration. We reply within 24 hours.</p>
 <a class="c-button c-button--primary mt-4" href="#" data-reveal>CHECK AVAILABILITY</a>

@@ -55,6 +55,54 @@
   }
 }
 
+/* Closing CTA — ceremonial invitation card. The supplied content and CTA remain untouched. */
+@layer maharani-components {
+  .c-closing-cta {
+    position: relative;
+    isolation: isolate;
+    border-bottom: 0 !important;
+  }
+
+  .c-closing-cta__card {
+    position: relative;
+    isolation: isolate;
+    width: min(100%, 48rem);
+    overflow: hidden;
+    padding: clamp(3.75rem, 7vw, 6.5rem) clamp(1.5rem, 6vw, 5.5rem);
+    border: 1px solid rgb(176 141 87 / 48%);
+    border-radius: clamp(1.5rem, 3.2vw, 2.6rem);
+    background-color: #fbf6ee;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cfilter id='paper' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035 .72' numOctaves='4' seed='17'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='.11'/%3E%3C/svg%3E"),
+      radial-gradient(circle at 14% 8%, rgb(255 255 255 / 74%), transparent 25rem),
+      linear-gradient(135deg, #fffdf9 0%, #f8f0e6 100%);
+    background-size: 260px 260px, auto, auto;
+    background-blend-mode: multiply, normal, normal;
+    box-shadow:
+      0 2.25rem 5rem rgb(56 35 22 / 14%),
+      0 0.65rem 1.5rem rgb(56 35 22 / 7%);
+  }
+
+  .c-closing-cta__card::before,
+  .c-closing-cta__card::after {
+    content: none;
+  }
+
+  .c-closing-cta__card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (max-width: 48rem) {
+    .c-closing-cta__card {
+      width: 100%;
+      gap: 1.75rem !important;
+      padding: 3.5rem 1.35rem;
+      border-radius: 1.5rem;
+    }
+  }
+}
+
 /* Premium dark footer — compact, symmetrical Indian-wedding editorial layout. */
 .c-footer-light {
   --footer-bg: var(--mf-hero-trust-surface);
@@ -780,7 +828,14 @@
   }
 
   /* Wedding Weekend switcher */
+  .c-weekend__frame {
+    isolation: isolate;
+    overflow: visible;
+    background: #f4efe6;
+  }
+
   .c-weekend__stage {
+    z-index: 1;
     box-shadow: 0 26px 70px rgb(36 24 19 / 13%);
   }
 
@@ -1093,46 +1148,67 @@
   }
 
   /* Traditions switcher */
-  .tradition-row {
-    min-height: 11.5rem;
-    transition: background-color var(--duration-base) var(--ease-standard);
+  .c-traditions__blinds {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--mf-cream-100);
   }
 
-  .tradition-row__media {
+  .c-traditions__shared-image {
     position: absolute;
     inset: 0;
     z-index: 0;
-    opacity: 0;
     pointer-events: none;
+    overflow: hidden;
+  }
+
+  .c-traditions__shared-image img {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover;
+    object-position: center 48%;
+    filter: saturate(0.92) contrast(1.04);
+  }
+
+  .tradition-row {
+    z-index: 1;
+    min-height: 11.5rem;
+    background: transparent;
+  }
+
+  .tradition-row::before,
+  .tradition-row::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    content: "";
     transition: opacity 700ms var(--ease-out);
   }
 
-  .tradition-row__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 42%;
-    transform: scale(1.035);
-    transition: transform 1300ms var(--ease-out);
+  .tradition-row::before {
+    opacity: 1;
+    background: var(--mf-cream-100);
   }
 
-  .tradition-row__media::after {
-    position: absolute;
-    inset: 0;
-    content: "";
+  .tradition-row::after {
+    opacity: 0;
     background: linear-gradient(90deg, rgb(23 20 17 / 90%), rgb(23 20 17 / 64%) 55%, rgb(23 20 17 / 82%));
   }
 
-  .tradition-row:hover .tradition-row__media,
-  .tradition-row:focus-visible .tradition-row__media,
-  .tradition-row.is-active .tradition-row__media {
-    opacity: 1;
+  .tradition-row:hover::before,
+  .tradition-row:focus-visible::before,
+  .tradition-row.is-active::before {
+    opacity: 0;
   }
 
-  .tradition-row:hover .tradition-row__media img,
-  .tradition-row:focus-visible .tradition-row__media img,
-  .tradition-row.is-active .tradition-row__media img {
-    transform: scale(1);
+  .tradition-row:hover::after,
+  .tradition-row:focus-visible::after,
+  .tradition-row.is-active::after {
+    opacity: 1;
   }
 
   .tradition-row:hover h3,

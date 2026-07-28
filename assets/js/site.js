@@ -51,8 +51,8 @@
     if (!scope) return;
 
     const rows = Array.from(scope.querySelectorAll(row));
-    const mediaItems = Array.from(scope.querySelectorAll(media));
-    if (!rows.length || !mediaItems.length) return;
+    const mediaItems = media ? Array.from(scope.querySelectorAll(media)) : [];
+    if (!rows.length || (media && !mediaItems.length)) return;
 
     const activate = (key) => {
       rows.forEach((item) => {
@@ -97,9 +97,7 @@
     setupMediaSwitcher({
       root: '[data-traditions-switcher]',
       row: '.tradition-row',
-      media: '.tradition-row__media',
       rowKey: 'data-target',
-      mediaKey: 'data-step',
       initial: 'hindu'
     });
   });
