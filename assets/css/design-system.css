@@ -566,6 +566,44 @@
     -webkit-text-fill-color: transparent;
   }
 
+  .c-where-we-film {
+    --where-film-art-width: min(100%, 104.5rem);
+  }
+
+  .c-where-we-film__inner {
+    display: grid;
+    justify-items: center;
+    gap: clamp(1.35rem, 2.5vw, 2.25rem);
+  }
+
+  .c-where-we-film__inner > .c-section-title {
+    margin-bottom: 0 !important;
+  }
+
+  .c-where-we-film__art {
+    width: var(--where-film-art-width);
+    aspect-ratio: 1672 / 941;
+    background-color: var(--color-surface);
+    background-image: url("../images/where-we-film-city-map.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .c-where-we-film__inner > p {
+    margin: 0;
+  }
+
+  @media (max-width: 48rem) {
+    .c-where-we-film__inner {
+      gap: 1.25rem;
+    }
+
+    .c-where-we-film__art {
+      width: min(100%, 42rem);
+    }
+  }
+
   .c-container {
     width: min(100%, var(--container-max));
     margin-inline: auto;
