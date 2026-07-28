@@ -463,9 +463,95 @@
     color: var(--color-ink) !important;
     -webkit-text-fill-color: currentColor !important;
   }
+
+  /* Fixed navigation reads as a quiet paper layer, not part of the page canvas. */
+  .c-site-header {
+    isolation: isolate;
+    background-color: #fbf6ee !important;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cfilter id='paper' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035 .72' numOctaves='4' seed='17'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='.095'/%3E%3C/svg%3E"),
+      linear-gradient(135deg, #fffdf9 0%, #f8f0e6 100%) !important;
+    background-size: 260px 260px, auto !important;
+    background-blend-mode: multiply, normal !important;
+    border-bottom: 1px solid rgb(176 141 87 / 32%) !important;
+    box-shadow: 0 1.15rem 2.7rem rgb(56 35 22 / 11%), 0 0.3rem 0.9rem rgb(56 35 22 / 5%);
+    backdrop-filter: none;
+  }
+
+  .c-site-header nav a {
+    background: none !important;
+    color: var(--color-ink) !important;
+    -webkit-text-fill-color: currentColor !important;
+  }
 }
 
 @layer maharani-components {
+  /* Traditions menu uses the same invitation-paper surface as the final CTA. */
+  .c-mega-menu__surface {
+    width: min(43.75rem, calc(100vw - 2rem)) !important;
+    overflow: hidden;
+    border: 1px solid rgb(176 141 87 / 44%);
+    border-radius: 1.35rem;
+    background-color: #fbf6ee;
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cfilter id='paper' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035 .72' numOctaves='4' seed='17'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='.11'/%3E%3C/svg%3E"),
+      radial-gradient(circle at 14% 8%, rgb(255 255 255 / 74%), transparent 25rem),
+      linear-gradient(135deg, #fffdf9 0%, #f8f0e6 100%);
+    background-size: 260px 260px, auto, auto;
+    background-blend-mode: multiply, normal, normal;
+    box-shadow: 0 1.75rem 4rem rgb(56 35 22 / 15%), 0 0.55rem 1.25rem rgb(56 35 22 / 7%);
+  }
+
+  .c-site-header .group:focus-within > .c-mega-menu {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .c-mega-menu__surface a:focus-visible {
+    outline-offset: 5px;
+  }
+
+  /* Match the header navigation's editorial type and underline interaction. */
+  .c-mega-menu__surface > .grid > a {
+    position: relative;
+    justify-self: center;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    color: var(--color-ink) !important;
+    font-family: "Cormorant Garamond", serif !important;
+    font-size: 0.875rem !important;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  .c-mega-menu__surface > .grid > a::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    content: "";
+    background: var(--mf-gold-500);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--duration-base) var(--ease-out);
+  }
+
+  .c-mega-menu__surface > .grid > a:hover,
+  .c-mega-menu__surface > .grid > a:focus-visible {
+    color: var(--color-ink) !important;
+  }
+
+  .c-mega-menu__surface > .grid > a:hover::after,
+  .c-mega-menu__surface > .grid > a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
   .c-section-title {
     display: inline-block;
     background: var(--type-section-title-gradient);
